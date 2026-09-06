@@ -8,7 +8,7 @@
 
 A Spring Boot / Thymeleaf app for tracking incidents and their status.
 
-## Screenshot
+## Showcase
 
 ![The incident list template, opened as a static file with no backend running](./docs/screenshot.png)
 

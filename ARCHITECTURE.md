@@ -9,6 +9,8 @@ incident carries an opening timestamp and, once resolved, a closing timestamp â€
 serves as a basic history of how long things took to fix. Estado and Incidencia are managed on
 separate screens but linked: each incident points at exactly one status.
 
+![Incidencia_Y_Estado architecture: browser hits the controllers, controllers call the service layer, which reads and writes through JPA repositories to a relational database](./docs/architecture.png)
+
 **Why Spring Boot**: this is the framework the course teaches for Java web development, not an
 independent architectural choice â€” it's a reasonable pick either way (huge ecosystem, generates
 most of the CRUD boilerplate through Spring Data JPA), but the honest reason it's here is that it's
