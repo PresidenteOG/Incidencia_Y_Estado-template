@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Nuevo Estado</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f3f5f9;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .card {
+      background: #ffffff;
+      padding: 28px 34px;
+      border-radius: 12px;
+      width: 380px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+      animation: fadeIn .3s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h2 {
+      margin-top: 0;
+      margin-bottom: 20px;
+      text-align: center;
+      color: #2d3748;
+      font-size: 24px;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 5px;
+      margin-top: 10px;
+      color: #374151;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #bfc5d2;
+      font-size: 14px;
+      transition: .2s;
+      box-sizing: border-box;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #4c84f3;
+      box-shadow: 0 0 5px rgba(76,132,243,0.4);
+    }
+
+    button {
+      width: 100%;
+      margin-top: 20px;
+      padding: 12px;
+      background: #4c84f3;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background .2s, transform .08s;
+    }
+
+    button:hover {
+      background: #3f71d4;
+    }
+
+    button:active {
+      transform: scale(.98);
+    }
+
+    .back-link {
+      display: block;
+      width: 100%;
+      text-align: center;
+      margin-top: 18px;
+      padding: 10px;
+      background: #28a745;
+      color: white;
+      border-radius: 6px;
+      font-size: 14px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background .2s;
+    }
+
+    .back-link:hover {
+      background: #1e8438;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="card">
+    <h2>Crear nuevo estado</h2>
+
+    <form th:object="${estado}" th:action="@{/Estado}" method="post">
+      <label for="nombre">Nombre del estado:</label>
+      <input type="text" id="nombre" th:field="*{nombre}" required />
+
+      <button type="submit">Guardar estado</button>
+    </form>
+
+    <a class="back-link" th:href="@{/Estado-list}">Volver</a>
+  </div>
+
+</body>
+</html>

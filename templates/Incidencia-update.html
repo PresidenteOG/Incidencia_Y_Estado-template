@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Actualizar incidencia</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f4f8;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .card {
+      background: #ffffff;
+      padding: 30px 35px;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+      width: 420px;
+      animation: fadeIn .3s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h2 {
+      text-align: center;
+      margin-top: 0;
+      margin-bottom: 20px;
+      color: #2d3748;
+      font-size: 24px;
+    }
+
+    label {
+      display: block;
+      margin-top: 14px;
+      margin-bottom: 4px;
+      font-weight: 600;
+      color: #374151;
+    }
+
+    input[type="text"],
+    select {
+      width: 100%;
+      padding: 9px 11px;
+      border-radius: 6px;
+      border: 1px solid #bfc5d2;
+      font-size: 14px;
+      transition: .2s;
+      box-sizing: border-box;
+    }
+
+    input[type="text"]:focus,
+    select:focus {
+      outline: none;
+      border-color: #4c84f3;
+      box-shadow: 0 0 5px rgba(76,132,243,0.4);
+    }
+
+    button {
+      width: 100%;
+      margin-top: 24px;
+      padding: 11px;
+      background: #4c84f3;
+      color: #ffffff;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background .2s, transform .08s;
+    }
+
+    button:hover {
+      background: #3f71d4;
+    }
+
+    button:active {
+      transform: scale(.98);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card">
+    <h2>Actualizar Incidencia</h2>
+
+    <form th:object="${incidencia}" th:action="@{/Incidencia}" method="post">
+      <input type="hidden" th:field="*{id}" />
+
+      <label for="titol">Título:</label>
+      <input type="text" id="titol" th:field="*{titol}" required />
+
+      <label for="descripcion">Descripción:</label>
+      <input type="text" id="descripcion" th:field="*{descripcion}" required />
+
+      <label for="prioritat">Prioridad:</label>
+      <select id="prioritat" th:field="*{prioritat}">
+        <option value="BAIXA">BAIXA</option>
+        <option value="MITJA">MITJA</option>
+        <option value="ALTA">ALTA</option>
+      </select>
+
+      <label for="estat">Estado:</label>
+      <select id="estat" th:field="*{estado.id}">
+        <option th:each="e : ${estados}"
+                th:value="${e.id}"
+                th:text="${e.nombre}">
+        </option>
+      </select>
+
+      <button type="submit">Guardar</button>
+    </form>
+  </div>
+</body>
+</html>
