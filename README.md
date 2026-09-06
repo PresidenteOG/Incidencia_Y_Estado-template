@@ -16,11 +16,9 @@ A Spring Boot / Thymeleaf app for tracking incidents and their status.
 no Spring backend behind it, so the table is empty. It shows the actual UI that was built, not a
 mockup.*
 
-### Architecture
+## Architecture
 
 ![Incidencia_Y_Estado architecture: browser hits the controllers, controllers call the service layer, which reads and writes through JPA repositories to a relational database](./docs/architecture.png)
-
-Full breakdown in [ARCHITECTURE.md](./ARCHITECTURE.md).
 
 **This template is a documentation and cleanup pass, not a runnable build** — see
 [ARCHITECTURE.md](./ARCHITECTURE.md) for why, and how to get it running.
