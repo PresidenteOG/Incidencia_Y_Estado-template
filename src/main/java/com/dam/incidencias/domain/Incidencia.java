@@ -1,4 +1,4 @@
-package com.example.demo.SpringBootIncidencia.domain;
+package com.dam.incidencias.domain;
 
 import java.time.LocalDateTime;
 import jakarta.persistence.Entity;

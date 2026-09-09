@@ -95,6 +95,7 @@
 
   <div class="top-actions">
     <a th:href="@{/Incidencia-add}">Añadir Incidencia</a>
+    <a th:href="@{/logout}" style="background:#6b7280;">Cerrar sesión</a>
   </div>
 
   <table>
@@ -117,7 +118,7 @@
       <td th:text="${incidencia.data_obertura}"></td>
       <td th:text="${incidencia.data_tancament}"></td>
       <td th:text="${incidencia.temps_resolucio}"></td>
-      <td th:text="${incidencia.estado.nombre}"></td>
+      <td th:text="${incidencia.estado != null ? incidencia.estado.nombre : '—'}"></td>
       <td th:text="${incidencia.prioritat}"></td>
 
       <td>

@@ -1,4 +1,4 @@
-package com.example.demo.SpringBootIncidencia.domain;
+package com.dam.incidencias.domain;
 
 import jakarta.persistence.*;
 import lombok.Data;

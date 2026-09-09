@@ -1,4 +1,4 @@
-package com.example.demo.SpringBootIncidencia.controller;
+package com.dam.incidencias.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -7,7 +7,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.example.demo.SpringBootIncidencia.service.EstadoService;
+import com.dam.incidencias.domain.Estado;
+import com.dam.incidencias.service.EstadoService;
 
 @Controller
 public class EstadoController {

@@ -1,8 +1,8 @@
-package com.example.demo.SpringBootIncidencia.service;
+package com.dam.incidencias.service;
 
 import java.util.List;
 
-import com.example.demo.SpringBootIncidencia.domain.Estado;
+import com.dam.incidencias.domain.Estado;
 
 public interface EstadoService {
 

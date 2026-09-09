@@ -1,8 +1,8 @@
-package com.example.demo.SpringBootIncidencia.service;
+package com.dam.incidencias.service;
 
 import java.util.List;
 
-import com.example.demo.SpringBootIncidencia.domain.Incidencia;
+import com.dam.incidencias.domain.Incidencia;
 
 public interface IncidenciaService {
     List<Incidencia> getAllIssues();
@@ -13,5 +13,5 @@ public interface IncidenciaService {
 
     void deleteIncidencia(Long id);
 
-    String Check(String name, String password);
+    boolean checkLogin(String name, String password);
 }

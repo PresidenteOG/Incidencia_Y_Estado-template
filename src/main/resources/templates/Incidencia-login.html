@@ -89,6 +89,11 @@
 <div class="card">
     <h1>Iniciar Sesión</h1>
 
+    <p th:if="${param.error}"
+       style="color:#a00000;background:#ffd4d4;border:1px solid #e38f8f;border-radius:6px;padding:8px 10px;text-align:center;font-size:14px;margin:0 0 12px;">
+        Usuario o contraseña incorrectos.
+    </p>
+
     <form th:action="@{/Incidencia/login}" method="post">
         <label for="Name">Nombre:</label>
         <input type="text" id="Name" name="Name" required>

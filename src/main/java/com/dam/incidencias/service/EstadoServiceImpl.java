@@ -1,12 +1,12 @@
-package com.example.demo.SpringBootIncidencia.service;
+package com.dam.incidencias.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.demo.SpringBootIncidencia.dao.EstadoDAO;
-import com.example.demo.SpringBootIncidencia.domain.Estado;
+import com.dam.incidencias.dao.EstadoDAO;
+import com.dam.incidencias.domain.Estado;
 
 @Service
 public class EstadoServiceImpl implements EstadoService {
