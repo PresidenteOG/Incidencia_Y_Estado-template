@@ -18,8 +18,8 @@ time the app starts.
 ## Run it
 
 ```
-git clone https://github.com/PresidenteOG/Incidencia_Y_Estado-template.git
-cd Incidencia_Y_Estado-template
+git clone https://github.com/PresidenteOG/incident-tracker.git
+cd incident-tracker
 ./mvnw spring-boot:run
 ```
 
