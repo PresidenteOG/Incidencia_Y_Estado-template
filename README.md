@@ -18,6 +18,9 @@ Server-rendered with Spring Boot and Thymeleaf, JPA over an in-memory H2 databas
 offline with nothing to configure — the database is created and filled with demo data every
 time the app starts.
 
+**Live:** https://incident-tracker-6sbn.onrender.com — log in with `admin` / `admin`. It's a
+free instance, so the first request after a quiet spell takes ~30 s to wake.
+
 ## Start here
 
 If you only read one file, read

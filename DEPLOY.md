@@ -1,5 +1,8 @@
 # Deploying incident-tracker
 
+**Live:** https://incident-tracker-6sbn.onrender.com — deployed from `render.yaml` on Render's free tier.
+
+
 The app is a single self-contained Spring Boot jar on in-memory H2. There is no database to
 provision and no secret to set — it re-seeds itself on every start. That makes it a good fit
 for any free container host.
