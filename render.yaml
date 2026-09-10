@@ -9,3 +9,6 @@ services:
     dockerfilePath: ./Dockerfile
     healthCheckPath: /LoginIncidencia
     autoDeploy: true
+    envVars:
+      - key: H2_CONSOLE
+        value: "false"

@@ -12,6 +12,15 @@ for any free container host.
 - **`Dockerfile`** — two-stage build (Maven → JRE). `docker build -t incident-tracker . && docker run -p 8080:8080 incident-tracker` works as-is.
 - **`render.yaml`** — a Render blueprint: one free Docker web service, health check on `/LoginIncidencia`.
 - `server.port=${PORT:8080}` in `application.properties` — picks up the port Render / Railway / Fly injects.
+- `H2_CONSOLE=false` (set in `render.yaml`) — turns off the `/h2-console` web UI on the public instance. It stays on locally.
+
+## What a visitor can and can't do
+
+The deployment is safe to leave open. There is no sign-up — the only account is the hardcoded
+`admin` / `admin`. Every start rebuilds the in-memory database from `data.sql`, and a free Render
+instance is torn down after ~15 minutes idle and on every deploy, so nothing a visitor adds,
+edits or deletes survives. The app makes no outbound calls (there is no email; nothing writes
+outside the container), and there are no file uploads.
 
 ## Render (matches `render.yaml`)
 
