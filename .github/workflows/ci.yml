@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: [main]
+    branches: [master]
   pull_request:
   workflow_dispatch:
 
@@ -40,7 +40,7 @@ jobs:
           path: target/site/jacoco
 
       - name: Commit the badge if it changed
-        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        if: github.ref == 'refs/heads/master' && github.event_name == 'push'
         run: |
           if [[ -n "$(git status --porcelain .github/badges)" ]]; then
             git config user.name  "github-actions[bot]"
