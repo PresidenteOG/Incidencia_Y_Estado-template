@@ -34,15 +34,9 @@ That is the only account — there is no user table, the check is against a hard
 spread across the three statuses and both open and closed, so every screen has data. The H2
 console is at <http://localhost:8080/h2-console> (JDBC URL `jdbc:h2:mem:incidenciasdb`).
 
-## Screenshots
-
-![Login screen](./docs/login.png) | ![Incident list with the seeded data](./docs/incident-list.png)
-:---:|:---:
-Login | Incident list
-
-![Adding an incident](./docs/incident-add.png) | ![Status management screen](./docs/status-list.png)
-:---:|:---:
-New incident | Statuses
+<!-- ## Screenshots
+     Login, incident list, new-incident form and the status screen — captured from a
+     local run with the seed data. Added in the screenshot pass. -->
 
 ## Architecture
 
