@@ -5,6 +5,9 @@
 ![Java](https://img.shields.io/badge/Java-ED8B00?style=flat&logo=openjdk&logoColor=white)
 ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-6DB33F?style=flat&logo=springboot&logoColor=white)
 ![Thymeleaf](https://img.shields.io/badge/Thymeleaf-005F0F?style=flat&logo=thymeleaf&logoColor=white)
+[![CI](https://github.com/PresidenteOG/incident-tracker/actions/workflows/ci.yml/badge.svg)](https://github.com/PresidenteOG/incident-tracker/actions/workflows/ci.yml)
+![Coverage](./.github/badges/jacoco.svg)
+![Branch coverage](./.github/badges/branches.svg)
 
 A small internal tool for logging IT incidents and tracking their status. Log in, see every
 incident with its priority and current status, add a new one, edit it, and mark it closed —
@@ -14,6 +17,18 @@ at which point the app records the close time and works out how long it was open
 Server-rendered with Spring Boot and Thymeleaf, JPA over an in-memory H2 database. It runs
 offline with nothing to configure — the database is created and filled with demo data every
 time the app starts.
+
+## Start here
+
+If you only read one file, read
+[`IncidenciaServiceImpl`](./src/main/java/com/dam/incidencias/service/IncidenciaServiceImpl.java).
+`saveIncidencia` is where the one real decision lives: a new incident gets its opening time
+stamped and defaults to *open*; an edit keeps the original opening time no matter what the
+form sent; moving an incident to *closed* stamps the close time and works out how long it was
+open (`"2h 30m"`), and moving it back off *closed* clears both. The matching test,
+[`IncidenciaServiceImplTest`](./src/test/java/com/dam/incidencias/service/IncidenciaServiceImplTest.java),
+pins each of those branches with the DAOs mocked. Everything else — controllers, the status
+CRUD screen, the hardcoded login — is plain Spring MVC glue around that.
 
 ## Run it
 
@@ -49,6 +64,21 @@ Logging a new incident | Editing one — changing the status is what records the
 ![Status management screen](./docs/screenshots/status-list.png)
 :---:
 The three statuses, managed on their own screen
+
+## Tests
+
+```
+./mvnw verify
+```
+
+29 tests. The bulk are unit tests on the service layer with the DAOs mocked
+(`IncidenciaServiceImplTest`, `EstadoServiceImplTest`) — no Spring context, fast. On top of
+those a `@DataJpaTest` slice (`IncidenciaDAOTest`) runs the real JPA layer against H2 and
+checks the seed loads and the `Incidencia → Estado` mapping resolves, and a `@SpringBootTest`
+smoke test boots the whole context. JaCoCo runs in the `verify` phase; the coverage badges
+above are regenerated from its report by CI on every push to `main`. Coverage is concentrated
+on the service layer on purpose — the controllers are thin enough that a test would only
+restate the mapping annotations.
 
 ## Architecture
 

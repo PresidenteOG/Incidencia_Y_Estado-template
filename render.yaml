@@ -1,0 +1,11 @@
+# Render blueprint — https://render.com/docs/blueprint-spec
+# One free web service, built from the Dockerfile. No database add-on: the app runs
+# on in-memory H2 and re-seeds itself on every start, which is what the demo wants.
+services:
+  - type: web
+    name: incident-tracker
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /LoginIncidencia
+    autoDeploy: true
